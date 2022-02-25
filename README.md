@@ -2,7 +2,7 @@
 
 ## Users :
 
-S'enregistrer : http://127.0.0.1:8000/api/register/
+S'enregistrer : http://127.0.0.1:8000/api/register/ \
 Consulter les users : http://127.0.0.1:8000/api/users/
 
 ## Contrats :
