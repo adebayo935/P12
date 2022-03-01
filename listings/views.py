@@ -6,6 +6,7 @@ from rest_framework.viewsets import ModelViewSet
 
 class SignUpView(ModelViewSet):
 
+    permission_classes = [IsManagerAuthenticated]
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     model = User

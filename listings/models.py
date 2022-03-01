@@ -39,7 +39,7 @@ class Contract(models.Model):
     sales_contact = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='sales_assignee')
     status = models.CharField(max_length=128)
     created_time = models.DateTimeField(auto_now_add=True)
-    updated_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(blank=True,null=True)
 
     def __int__(self):
         return self.id
@@ -56,7 +56,7 @@ class Event(models.Model):
     date_event = models.DateTimeField()
     notes = models.CharField(max_length=128)
     created_time = models.DateTimeField(auto_now_add=True)
-    updated_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(blank=True,null=True)
 
     def __str__(self):
         return self.name

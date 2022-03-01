@@ -3,8 +3,7 @@ from rest_framework import serializers
 from .models import *
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django import forms
-from rest_framework.response import Response
-from rest_framework import status
+from datetime import datetime
 
 class RegisterSerializer(ModelSerializer):
 
@@ -39,6 +38,11 @@ class EventSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = ['id','name','client','support_contact','contract','status','attendees','date_event','notes','created_time','updated_time']
+
+    def update(self, instance, validated_data):
+        today = datetime.now()
+        instance.updated_time = today
+        return instance
      
 
 
@@ -47,3 +51,9 @@ class ContractSerializer(ModelSerializer):
     class Meta:
         model = Contract
         fields = ['id','client','amount','sales_contact','status','created_time','updated_time']
+
+    def update(self, instance, validated_data):
+        today = datetime.now()
+        instance.updated_time = today
+        return instance
+        
